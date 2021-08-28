@@ -3,6 +3,9 @@
 const Web3 = require('web3');
 var Accounts = require('web3-eth-accounts');
 
+//This tests require an account with:
+//- funds to send transactions
+//- ERC20 token funds to test the contract
 const { ACCOUNT_PRIVATE_KEY } = require('./secrets');       //<- COMMENT OUT THIS &
 //const ACCOUNT_PRIVATE_KEY = '<YOUR_ETHEREUM_PRIVATE_KEY>';//<- UNCOMMENT AND REPLACE THIS ;)
 

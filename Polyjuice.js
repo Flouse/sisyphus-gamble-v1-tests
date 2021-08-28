@@ -1,14 +1,14 @@
 "strict mode"
 
 const Web3 = require('web3');
-const { PolyjuiceHttpProvider, PolyjuiceAccounts } = require("@polyjuice-provider/web3");
+const { PolyjuiceHttpProvider, PolyjuiceAccounts, allTypeEthAddressToAccountId } = require("@polyjuice-provider/web3");
+const { utils } = require("@ckb-lumos/base");
 
+//This tests require an account with:
+//- funds to send transactions
+//- ERC20 token funds to test the contract 
 const { ACCOUNT_PRIVATE_KEY } = require('./secrets');       //<- COMMENT OUT THIS &
 //const ACCOUNT_PRIVATE_KEY = '<YOUR_ETHEREUM_PRIVATE_KEY>';//<- UNCOMMENT AND REPLACE THIS ;)
-
-//TODO: use the library to calculate the polyjuice address///////////////////////////////////////////////////////////////////////
-const ACCOUNT_POLY_ADDRESS = '0x6a9729b13a39c948b5a47dc20be3282c03bf98dd';
-
 
 // This contract is a SisyphusGambleVenues, full solidity contract can be found at:
 // https://github.com/haxyz/SisyphusGamble/blob/master/SisyphusGamble.sol
@@ -44,6 +44,12 @@ const DEFAULT_SEND_OPTIONS = {
 web3.eth.accounts = new PolyjuiceAccounts(polyjuiceConfig);
 const account = web3.eth.accounts.wallet.add(ACCOUNT_PRIVATE_KEY);
 web3.eth.Contract.setProvider(provider, web3.eth.accounts);
+
+const ACCOUNT_POLY_ADDRESS = utils.computeScriptHash({
+    code_hash: polyjuiceConfig.ethAccountLockCodeHash,
+    hash_type: "type",
+    args: polyjuiceConfig.rollupTypeHash + account.address.slice(2).toLowerCase(),
+}).slice(0, 42);
 
 exports.web3 = web3;
 exports.DEFAULT_SEND_OPTIONS = DEFAULT_SEND_OPTIONS;
