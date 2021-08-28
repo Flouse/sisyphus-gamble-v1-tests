@@ -9,7 +9,7 @@ if (args[0] == 'Rinkeby') {
     throw "Rinkeby not implemented yet";
 }
 
-const {web3, DEFAULT_SEND_OPTIONS, account, POLY_ADDRESS, SISYPHUSGAMBLEVENUES_ADDRESS, ERC20_ADDRESS} = require('./'+args[0]);
+const {web3, DEFAULT_SEND_OPTIONS, account, ACCOUNT_POLY_ADDRESS, SISYPHUSGAMBLEVENUES_ADDRESS, ERC20_ADDRESS} = require('./'+args[0]);
 const {SISYPHUSGAMBLEVENUES_ABI, IERC20_ABI} = require('./ABI');
 
 async function checkBalance(amount) {
@@ -22,9 +22,9 @@ async function checkBalance(amount) {
     }
 }
 
-async function checkWETHBalance(contract,amount) {
+async function checkWETHBalance(contract, address, amount) {
     console.log(`Checking WETH Balance...`);
-    const balance = BigInt(await contract.methods.balanceOf(POLY_ADDRESS).call({
+    const balance = BigInt(await contract.methods.balanceOf(address).call({
         from: account.address
     }));
 
@@ -44,9 +44,7 @@ async function approve(tokenContract,address,amount) {
 
     tx.on('transactionHash', hash => console.log(`Approve call transaction hash: ${hash}`));
 
-    const receipt = await tx;
-
-    console.log('Approve call transaction receipt: ', receipt);
+    return tx;
 }
 
 (async () => {
@@ -56,7 +54,7 @@ async function approve(tokenContract,address,amount) {
         const WETHContract = new web3.eth.Contract(IERC20_ABI, ERC20_ADDRESS);
 
         await checkBalance(1);
-        await checkWETHBalance(WETHContract,2);
+        await checkWETHBalance(WETHContract,ACCOUNT_POLY_ADDRESS,2);
         await approve(WETHContract,SISYPHUSGAMBLEVENUES_ADDRESS,1);
     } catch (error) {
         console.log(error);

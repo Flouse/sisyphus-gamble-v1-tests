@@ -6,8 +6,12 @@ const { PolyjuiceHttpProvider, PolyjuiceAccounts } = require("@polyjuice-provide
 const { ACCOUNT_PRIVATE_KEY } = require('./secrets');       //<- COMMENT OUT THIS &
 //const ACCOUNT_PRIVATE_KEY = '<YOUR_ETHEREUM_PRIVATE_KEY>';//<- UNCOMMENT AND REPLACE THIS ;)
 
+//TODO: use the library to calculate the polyjuice address///////////////////////////////////////////////////////////////////////
+const ACCOUNT_POLY_ADDRESS = '0x6a9729b13a39c948b5a47dc20be3282c03bf98dd';
+
+
 // This contract is a SisyphusGambleVenues, full solidity contract can be found at:
-// https://github.com/haxyz/SisyphusGamble/blob/master/contracts/SisyphusGamble.sol
+// https://github.com/haxyz/SisyphusGamble/blob/master/SisyphusGamble.sol
 // Transaction hash: 0x1b0e1615f005b40e7e04e7143834b86b424858ce3a588f1e87e8bf10bea4efcd
 // Deployed contract address:
 const SISYPHUSGAMBLEVENUES_ADDRESS = '0x538d6f5ae9235Ca33B1018782dCC14566cc92434';
@@ -41,12 +45,9 @@ web3.eth.accounts = new PolyjuiceAccounts(polyjuiceConfig);
 const account = web3.eth.accounts.wallet.add(ACCOUNT_PRIVATE_KEY);
 web3.eth.Contract.setProvider(provider, web3.eth.accounts);
 
-//Use the real deal from libray!!!///////////////////////////////////////////////////////////////////////////
-const POLY_ADDRESS = '0x6a9729b13a39c948b5a47dc20be3282c03bf98dd';
-
 exports.web3 = web3;
-exports.DEFAULT_SEND_OPTIONS = DEFAULT_SEND_OPTIONS
+exports.DEFAULT_SEND_OPTIONS = DEFAULT_SEND_OPTIONS;
 exports.account = account;
-exports.POLY_ADDRESS = POLY_ADDRESS
+exports.ACCOUNT_POLY_ADDRESS = ACCOUNT_POLY_ADDRESS;
 exports.SISYPHUSGAMBLEVENUES_ADDRESS = SISYPHUSGAMBLEVENUES_ADDRESS;
 exports.ERC20_ADDRESS = ERC20_ADDRESS;
