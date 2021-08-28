@@ -30,9 +30,16 @@ async function checkWETHBalance(contract, address, amount) {
     }
 }
 
-async function approve(tokenContract,address,amount) {
+async function getSisyphusGambleVenues(contract) {
+    console.log(`Getting Sisyphus Gamble Venues...`);
+    return contract.methods.getSisyphusGambleVenues().call({
+        from: account.address
+    });
+}
+
+async function approve(contract,address,amount) {
     console.log(`Approving WETH usage...`);
-    const tx = tokenContract.methods.approve(address,amount).send(
+    const tx = contract.methods.approve(address,amount).send(
         {
             ...DEFAULT_SEND_OPTIONS,
             from: account.address,
@@ -52,6 +59,7 @@ async function approve(tokenContract,address,amount) {
 
         await checkBalance(1);
         await checkWETHBalance(WETHContract,ACCOUNT_POLY_ADDRESS,2);
+        await getSisyphusGambleVenues(SGVenuesContract);
         await approve(WETHContract,SISYPHUSGAMBLEVENUES_ADDRESS,1);
     } catch (error) {
         console.log(error);
