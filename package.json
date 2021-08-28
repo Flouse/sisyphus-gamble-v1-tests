@@ -1,0 +1,10 @@
+{
+  "name": "sisyphus-trial-v1-tests",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@polyjuice-provider/web3": "0.0.1-rc9",
+    "web3": "^1.4.0"
+  }
+}
