@@ -5,7 +5,6 @@
 // https://github.com/haxyz/SisyphusGamble/blob/master/SisyphusGamble.sol
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 const SISYPHUSGAMBLEVENUES_ABI = [
     {
         "anonymous": false,
@@ -193,6 +192,265 @@ const SISYPHUSGAMBLEVENUES_ABI = [
 ];
 
 exports.SISYPHUSGAMBLEVENUES_ABI = SISYPHUSGAMBLEVENUES_ABI;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Full solidity contract can be found at:
+// https://github.com/haxyz/SisyphusGamble/blob/master/SisyphusGamble.sol
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const SISYPHUSGAMBLE_ABI = [
+    {
+        "inputs": [
+            {
+                "internalType": "contract IERC20",
+                "name": "token_",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "minGamble_",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint8",
+                "name": "weight_",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint24",
+                "name": "gamblingBlocks_",
+                "type": "uint24"
+            },
+            {
+                "internalType": "address",
+                "name": "parent_",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "child_",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "winner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "totalPrize",
+                "type": "uint256"
+            }
+        ],
+        "name": "ClaimPrize",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "gambler",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "totalPrize",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "endBlock",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "newMinGamble",
+                "type": "uint256"
+            }
+        ],
+        "name": "Gamble",
+        "type": "event"
+    },
+    {
+        "inputs": [],
+        "name": "Child",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "Parent",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "parent",
+                "type": "address"
+            }
+        ],
+        "name": "changeParent",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "claimPrize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "endBlock",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "gamble",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "gamblingBlocks",
+        "outputs": [
+            {
+                "internalType": "uint24",
+                "name": "",
+                "type": "uint24"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "lastGambler",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "minGamble",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "removeChild",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "token",
+        "outputs": [
+            {
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "totalPrize",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "weight",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+];
+
+exports.SISYPHUSGAMBLE_ABI = SISYPHUSGAMBLE_ABI;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Full solidity contract interface can be found at:
