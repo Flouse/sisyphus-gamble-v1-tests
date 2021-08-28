@@ -5,9 +5,6 @@ const args = process.argv.slice(2);
 if (args[0] !== 'Polyjuice' && args[0] !== 'Rinkeby') {
     throw "First argument must be either Polyjuice or Rinkeby";
 }
-if (args[0] == 'Rinkeby') {
-    throw "Rinkeby not implemented yet";
-}
 
 const {web3, DEFAULT_SEND_OPTIONS, account, ACCOUNT_POLY_ADDRESS, SISYPHUSGAMBLEVENUES_ADDRESS, ERC20_ADDRESS} = require('./'+args[0]);
 const {SISYPHUSGAMBLEVENUES_ABI, IERC20_ABI} = require('./ABI');
