@@ -4,11 +4,11 @@ const Web3 = require('web3');
 const { PolyjuiceHttpProvider, PolyjuiceAccounts } = require("@polyjuice-provider/web3");
 const { utils } = require("@ckb-lumos/base");
 
-
 const GODWOKEN_RPC_URL = process.env.SGT_RPC_URL || 'https://godwoken-testnet-web3-rpc.ckbapp.dev';
+
 const polyjuiceConfig = {
-    rollupTypeHash: '0x4cc2e6526204ae6a2e8fcf12f7ad472f41a1606d5b9624beebd215d780809f6a',
-    ethAccountLockCodeHash: '0xdeec13a7b8e100579541384ccaf4b5223733e4a5483c3aec95ddc4c1d5ea5b22',
+    rollupTypeHash: '0xdf6913a5941ffda9756b0a325fb1115521af6d1c08841505f84bdb6e0f9b7b10',
+    ethAccountLockCodeHash: '0x2cf55023e2bfdbb86e0d95320f7d2f15393a76a830d5bb5e687e0c780d90134d',
     web3Url: GODWOKEN_RPC_URL
 };
   

@@ -8,51 +8,74 @@ Usage:
     ```
     SGT_ACCOUNT_PRIVATE_KEY=<YOUR-ETHEREUM-PRIVATE-KEY>
     SGT_NETWORK=Polyjuice
-    SGT_RPC_URL=localhost:6100 
+    SGT_RPC_URL=http://localhost:8024
     ```
 - `yarn start`
 
 
-### Status on Polyjuice: error
+### Status on Polyjuice
 
-```
-haxyz@nervos-workstation:~/sisyphus-gamble-v1-tests$ yarn start
-yarn run v1.22.5
+```log
 $ node -r dotenv/config index.js
-Using Polyjuice network with default RPC URL
+Using Polyjuice network with http://imagos:8024 RPC URL
 Checking Balance...
+balance of 0x44D6226d5d7c2b42523cf28A4EFC9E471e62Bb07 = 159983752328
+balance of 0xD43ceeDb05Cb260123E9D683Db67D5306868b9E8 =  280000000000n
 Deploying contract...
-Txn Hash: 0xd6193094d500c78b60a41b42d355cb831c1dc2ea4dc42aab149006e0e9b8c1ed
-Sisyphus gamble venues deployed on address: 0xC60ECb5FffF9379AedFA8B3F1E13588e28032d55
+Txn Hash: 0x24ff0044f3cb8c8e004f4e623bb395f14d1d3b4790627b65b388a7a4a29b8eb9
+Sisyphus gamble venues deployed on address: 0xfB9a83b9800b4d5cb6b981bee1435De9379c50cC
 Deploying contract...
-Txn Hash: 0x6520a951a138de0025b5ee747045879a465b07577b0b52c50b874ad7b632822d
-TestERC20 on address: 0x86A23AD90139f58a354AD055879f720982e57491
+Txn Hash: 0x7ba4d543d778b2a35615eef28412939e34525a1fb5fdf4892a6e2e83d2491050
+TestERC20 on address: 0x9e740B8a9Ca8E6C5F035D1c61B09ff7f1f4a070E
+blockNumber = 8375
+  waiting for the next block
+  waiting for the next block
+  waiting for the next block
+  waiting for the next block
+  waiting for the next block
+  waiting for the next block
+  waiting for the next block
 Checking ERC20 Balance...
+ERC20 Balance of 0x315a2160b5cbf24ee4f7aab0fb31926e1fb758de: 115792089237316195423570985008687907853269984665640564039457584007913129639935n
 Approving ERC20 usage...
-Txn Hash: 0xcff4ed5ce048e9cdc233852e84b7fb7e0113268cf3eef551a2283155829db08c
+Txn Hash: 0xb526e3024abaa41fb79ce53c92303d54cdacac05b0ee25cd064b63c67937ac7f
 New Sisyphus Gamble...
-Txn Hash: 0x75f8fcc4e9d252926d66383648a8cfc622aadaf87e736bc0578d377ae84ccbbf
+Txn Hash: 0xa6115767d567f85a99ca63722b81e386736277a0758c1f029848c40aba41cba6
+blockNumber = 8376
+  waiting for the next block
+  waiting for the next block
+  waiting for the next block
+  waiting for the next block
+Checking ERC20 Balance...
+ERC20 Balance of 0x315a2160b5cbf24ee4f7aab0fb31926e1fb758de: 115792089237316195423570985008687907853269984665640564039457584007913129639934n
 Getting Sisyphus Gamble Venues...
-Sisyphus gamble venues deployed on address: 0x86AE547922F4B0Ba2E96CB5f3ad2B7b7f63c8DF8
+Sisyphus gamble venues deployed on address: 0x9920c79c976aB017b0510BCe4B797b8ebfAAA7Fd
 Approving ERC20 usage...
-Txn Hash: 0x20b7d15a2444304ca6c6d2c4ed3a0ed859afa5e76d2d438c74bfc23bbe1a3d92
+Txn Hash: 0xfc7afffb684972271cbbefc1b99225812e1e4a3991b2824c0a81cf56c7c63223
 Calling gamble...
-Txn Hash: 0x150a3310385da125fc718463d68107fbfc37f87c443bd07c5f21e80e3abb2b7d
+Txn Hash: 0x2b36d3ba66ad54a1529206cf29240cc9c3bcc40884d91389d7bcd92c912155ce
+blockNumber = 8377
+  waiting for the next block
+  waiting for the next block
+  waiting for the next block
+  waiting for the next block
+Checking ERC20 Balance...
+ERC20 Balance of 0x315a2160b5cbf24ee4f7aab0fb31926e1fb758de: 115792089237316195423570985008687907853269984665640564039457584007913129639933n
+blockNumber = 8378
+  waiting for the next block
+  waiting for the next block
+  waiting for the next block
+  waiting for the next block
 Claiming prize...
-Txn Hash: 0x83c2d81535b6db2ac8ecf9c40f7b87a6d8ff14e77926688d959892351bc23abb
-Error: Transaction was not mined within 750 seconds, please make sure your transaction was properly sent. Be aware that it might still be mined!
-    at Object.TransactionError (/home/haxyz/sisyphus-gamble-v1-tests/node_modules/web3-core-helpers/lib/errors.js:87:21)
-    at /home/haxyz/sisyphus-gamble-v1-tests/node_modules/web3-core-method/lib/index.js:416:49
-    at runMicrotasks (<anonymous>)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5) {
-  receipt: undefined
-}
-Done in 875.80s.
+Txn Hash: 0x5c35a7bb29f485b05a3f1ad511b01ad584f766fecd2151d8e0c03d7f25d5e69d
+Checking ERC20 Balance...
+ERC20 Balance of 0x315a2160b5cbf24ee4f7aab0fb31926e1fb758de: 115792089237316195423570985008687907853269984665640564039457584007913129639935n
+Done in 135.98s.
 ```
 
-### Status on Rinkeby: ok
+### Status on Rinkeby
 
-```
+```log
 haxyz@nervos-workstation:~/sisyphus-gamble-v1-tests$ yarn start
 yarn run v1.22.5
 $ node -r dotenv/config index.js
